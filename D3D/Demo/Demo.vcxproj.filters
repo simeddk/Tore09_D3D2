@@ -57,6 +57,9 @@
     <ClCompile Include="TextureBufferDemo.cpp">
       <Filter>Thread</Filter>
     </ClCompile>
+    <ClCompile Include="FunctionPtrDemo.cpp">
+      <Filter>FuctionPtr</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h" />
@@ -115,6 +118,9 @@
     <ClInclude Include="TextureBufferDemo.h">
       <Filter>Thread</Filter>
     </ClInclude>
+    <ClInclude Include="FunctionPtrDemo.h">
+      <Filter>FuctionPtr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Vertex">
@@ -137,6 +143,9 @@
     </Filter>
     <Filter Include="Thread">
       <UniqueIdentifier>{abf91990-983b-4af0-89d5-6bdbb57a7284}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FuctionPtr">
+      <UniqueIdentifier>{a4292ec3-3ab3-4d44-859c-b92337869aa5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
