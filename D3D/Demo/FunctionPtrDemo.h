@@ -26,4 +26,9 @@ public:
 	virtual void Render() override {};
 	virtual void PostRender() override {};
 	virtual void ResizeScreen() override {};
+
+private:
+	void OnSaveCompleted(wstring path);
+	void OnLoadCompleted(wstring path);
+
 };

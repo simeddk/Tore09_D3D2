@@ -118,9 +118,85 @@ void FunctionPtrDemo::Destroy()
 
 void FunctionPtrDemo::Update()
 {
-	if (ImGui::Button("Save", ImVec2(120, 120)))
+	if (ImGui::Button("Save as csv"))
 	{
-		function<void(wstring)> OnSaveCompletedDelegate = bind(); //Todo.
-		Path::SaveFileDialog(L"", L"CSV\0*.csv", L"",  );
+		function<void(wstring)> OnSaveCompletedDelegate = bind(&FunctionPtrDemo::OnSaveCompleted, this, placeholders::_1);
+		Path::SaveFileDialog(L"", L"CSV\0*.csv", L"", OnSaveCompletedDelegate, D3D::GetDesc().Handle);
+	}
+
+	if (ImGui::Button("Load as csv"))
+	{
+		function<void(wstring)> OnLoadCompletedDelegate = bind(&FunctionPtrDemo::OnLoadCompleted, this, placeholders::_1);
+		Path::OpenFileDialog(L"", L"CSV\0*.csv", L"", OnLoadCompletedDelegate, D3D::GetDesc().Handle);
+	}
+}
+
+void FunctionPtrDemo::OnSaveCompleted(wstring path)
+{
+	Path::CreateFolders("../../_Datas/");
+
+	path += L".csv";
+	printf("%s", String::ToString(path).c_str());
+
+	vector<float> RandomFloatArray;
+	vector<Vector3> RandomVectorArray;
+	for (int i = 0; i < 10; i++)
+	{
+		RandomFloatArray.push_back(Math::Random(10.f, 20.f));
+		RandomVectorArray.push_back(Vector3(i, i, i));
+	}
+
+	FILE* Buffer = nullptr;
+	fopen_s(&Buffer, String::ToString(path).c_str(), "w");
+
+	for (int i = 0; i < 10; i++)
+	{
+		fprintf
+		(
+			Buffer,
+			"%f,%f,%f,%f\n",
+			RandomFloatArray[i], 
+			RandomVectorArray[i].x,
+			RandomVectorArray[i].y,
+			RandomVectorArray[i].z
+		);
+	}
+
+	fclose(Buffer);
+}
+
+void FunctionPtrDemo::OnLoadCompleted(wstring path)
+{
+	FILE* Buffer = nullptr;
+	fopen_s(&Buffer, String::ToString(path).c_str(), "r");
+
+	vector<float> RandomFloatArray;
+	RandomFloatArray.assign(10, float());
+
+	vector<Vector3> RandomVectorArray;
+	RandomVectorArray.assign(10, Vector3(1,1,1));
+
+	for (int i = 0; i < 10; i++)
+	{
+		fscanf_s
+		(
+			Buffer,
+			"%f,%f,%f,%f\n",
+			&RandomFloatArray[i],
+			&RandomVectorArray[i].x,
+			&RandomVectorArray[i].y,
+			&RandomVectorArray[i].z
+		);
+	}
+
+	fclose(Buffer);
+
+
+	for (int i = 0; i < 10; i++)
+	{
+		DWORD Color = FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE;
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color);
+
+		printf("%f, %f, %f, %f\n,", RandomFloatArray[i], RandomVectorArray[i].x, RandomVectorArray[i].y, RandomVectorArray[i].z);
 	}
 }
