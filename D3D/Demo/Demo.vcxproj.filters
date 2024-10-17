@@ -63,6 +63,9 @@
     <ClCompile Include="BinaryFileDemo.cpp">
       <Filter>FuctionPtr</Filter>
     </ClCompile>
+    <ClCompile Include="ThreadDemo.cpp">
+      <Filter>Thread</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h" />
@@ -126,6 +129,9 @@
     </ClInclude>
     <ClInclude Include="BinaryFileDemo.h">
       <Filter>FuctionPtr</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadDemo.h">
+      <Filter>Thread</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

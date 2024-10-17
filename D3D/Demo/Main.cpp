@@ -22,10 +22,11 @@
 #include "TextureBufferDemo.h"
 #include "FunctionPtrDemo.h"
 #include "BinaryFileDemo.h"
+#include "ThreadDemo.h"
 
 void Main::Initialize()
 {
-	Push(new BinaryFileDemo());
+	Push(new ThreadDemo());
 }
 
 
