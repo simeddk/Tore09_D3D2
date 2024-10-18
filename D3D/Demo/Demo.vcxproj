@@ -162,12 +162,14 @@
     <ClCompile Include="PolygonDemo.cpp" />
     <ClCompile Include="RawBufferDemo.cpp" />
     <ClCompile Include="SamplerStateDemo.cpp" />
+    <ClCompile Include="SharedPtrDemo.cpp" />
     <ClCompile Include="StaticMeshDemo.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="TerrainDemo.cpp" />
     <ClCompile Include="TextureBufferDemo.cpp" />
     <ClCompile Include="TextureDemo.cpp" />
     <ClCompile Include="ThreadDemo.cpp" />
+    <ClCompile Include="UniquePtrDemo.cpp" />
     <ClCompile Include="WorldDemo.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -187,12 +189,14 @@
     <ClInclude Include="PolygonDemo.h" />
     <ClInclude Include="RawBufferDemo.h" />
     <ClInclude Include="SamplerStateDemo.h" />
+    <ClInclude Include="SharedPtrDemo.h" />
     <ClInclude Include="StaticMeshDemo.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TerrainDemo.h" />
     <ClInclude Include="TextureBufferDemo.h" />
     <ClInclude Include="TextureDemo.h" />
     <ClInclude Include="ThreadDemo.h" />
+    <ClInclude Include="UniquePtrDemo.h" />
     <ClInclude Include="WorldDemo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

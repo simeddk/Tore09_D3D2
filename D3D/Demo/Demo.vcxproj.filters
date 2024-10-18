@@ -66,6 +66,12 @@
     <ClCompile Include="ThreadDemo.cpp">
       <Filter>Thread</Filter>
     </ClCompile>
+    <ClCompile Include="UniquePtrDemo.cpp">
+      <Filter>SmartPointer</Filter>
+    </ClCompile>
+    <ClCompile Include="SharedPtrDemo.cpp">
+      <Filter>SmartPointer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h" />
@@ -133,6 +139,12 @@
     <ClInclude Include="ThreadDemo.h">
       <Filter>Thread</Filter>
     </ClInclude>
+    <ClInclude Include="UniquePtrDemo.h">
+      <Filter>SmartPointer</Filter>
+    </ClInclude>
+    <ClInclude Include="SharedPtrDemo.h">
+      <Filter>SmartPointer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Vertex">
@@ -158,6 +170,9 @@
     </Filter>
     <Filter Include="FuctionPtr">
       <UniqueIdentifier>{a4292ec3-3ab3-4d44-859c-b92337869aa5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SmartPointer">
+      <UniqueIdentifier>{5ac2f818-d54e-4857-9b37-ded4b1229bae}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

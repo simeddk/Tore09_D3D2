@@ -248,7 +248,7 @@ void Provider(queue<string>* queue, mutex* m, int index)
 
 	for (int i = 0; i < 5; i++)
 	{
-		this_thread::sleep_for(chrono::microseconds(100 * index));
+		this_thread::sleep_for(chrono::milliseconds(100 * index));
 		string Contents = "ThreadIndex[" + to_string(index) + "], Value = " + Datas[i];
 		
 		m->lock();
@@ -263,10 +263,16 @@ void Comsumer(queue<string>* queue, mutex* m, int* count)
 	{
 		m->lock();
 
+		if (queue->empty())
+		{
+			m->unlock();
+
+			this_thread::sleep_for(chrono::milliseconds(100));
+			continue;
+		}
+
 		string Poped = queue->front();
 		queue->pop();
-
-		//Todo.
 
 		(*count)++;
 		m->unlock();
@@ -286,9 +292,18 @@ void ThreadDemo::ProviderAndComsumer()
 		Sender.push_back(thread(Provider, &Queue, &m, i));
 	}
 
-	int ProcessCount;
+	int ProcessCount = 0;
 	thread Receiver(Comsumer, &Queue, &m, &ProcessCount);
 
+	for (int i = 0; i < 5; i++)
+	{
+		Sender[i].join();
+	}
+
+	Receiver.join();
+
+	printf(ProcessCount == 25 ? "Success" : "Faild");
+	printf("\n");
 
 }
 

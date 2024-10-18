@@ -23,10 +23,12 @@
 #include "FunctionPtrDemo.h"
 #include "BinaryFileDemo.h"
 #include "ThreadDemo.h"
+#include "UniquePtrDemo.h"
+#include "SharedPtrDemo.h"
 
 void Main::Initialize()
 {
-	Push(new ThreadDemo());
+	Push(new SharedPtrDemo());
 }
 
 
